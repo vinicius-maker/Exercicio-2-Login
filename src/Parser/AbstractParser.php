@@ -8,9 +8,9 @@ abstract class AbstractParser
 {
     protected $crawler;
 
-    public function __construct($tituloPageObject)
+    public function __construct($html)
     {
         $this->crawler = new Crawler();
-        $this->crawler->addHtmlContent($tituloPageObject);
+        $this->crawler->addHtmlContent($html);
     }
 }

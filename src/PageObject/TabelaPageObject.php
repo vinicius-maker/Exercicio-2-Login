@@ -2,25 +2,21 @@
 
 namespace Forseti\Bot\Login\PageObject;
 
-use Forseti\Bot\Login\Parser\TituloParser;
+use Forseti\Bot\Login\Bean\TabelaBean;
+use Forseti\Bot\Login\Enums\Url;
+use Forseti\Bot\Login\Parser\TabelaParser;
+use GuzzleHttp\Psr7\Response;
 
-class LoginPageObject extends AbstractPageObject
+class TabelaPageObject extends AbstractPageObject
 {
-    private $usuario;
-    private $senha;
+    use TabelaBean;
 
-    public function getResposta()
+    public function getResponse() : Response
     {
-        $this->info('Buscando Pagina de Login');
-        return $this->request('GET', 'http://192.168.1.98:81/login');
-    }
-
-    public function postLogar()
-    {
-        return $this->client->request('POST', 'http://192.168.1.98:81/login',
+        return $this->client->request('POST', Url::LOGIN,
             [
                 'form_params' => [
-                    '_token' => $this->getParser()->getToken() ,
+                    '_token' => (new TokenPageObject())->getParser()->getToken() ,
                     'email' => $this->usuario ,
                     'password' => $this->senha
                 ]
@@ -30,19 +26,8 @@ class LoginPageObject extends AbstractPageObject
 
     public function getParser()
     {
-        return new TituloParser($this->getHtml());
+        return new TabelaParser($this->getHtml());
     }
 
-    public function setUsuario($usuario)
-    {
-        $this->usuario = $usuario;
-        return $this;
-    }
-
-    public function setSenha($senha)
-    {
-        $this->senha = $senha;
-        return $this;
-    }
 
 }

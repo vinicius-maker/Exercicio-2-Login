@@ -2,6 +2,7 @@
 
 namespace Forseti\Bot\Login\PageObject;
 
+use Forseti\Bot\Login\Enums\Url;
 use Forseti\Bot\Login\Parser\TokenParser;
 use GuzzleHttp\Psr7\Response;
 
@@ -12,7 +13,7 @@ class TokenPageObject extends AbstractPageObject
         $this->info('Capturando token');
         $response = $this->request(
             'GET',
-            'http://192.168.1.98:81/panel'
+            Url::PAINEL
         );
         return $response;
     }
@@ -26,10 +27,4 @@ class TokenPageObject extends AbstractPageObject
     {
         return new TokenParser($this->getHtml());
     }
-
-
-  /*  public function getResponse() :
-    {
-        // TODO: Implement getResposta() method.
-    }*/
 }

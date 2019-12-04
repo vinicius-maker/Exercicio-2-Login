@@ -2,9 +2,10 @@
 
 namespace Forseti\Bot\Login\PageObject;
 
+use Forseti\Bot\Login\Singleton\ClientSingleton;
 use Forseti\Bot\Login\Traits\ForsetiLoggerTrait;
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Psr7\Response;
 
 abstract class AbstractPageObject
 {
@@ -14,14 +15,14 @@ abstract class AbstractPageObject
 
     public function __construct()
     {
-        $this->client = new Client(['cookies' => true]);
+        $this->client = ClientSingleton::getInstance();
     }
 
-    abstract public function getResposta();
+    abstract public function getResponse() : Response;
 
     public function getHtml()
     {
-        return $this->getResposta()->getBody()->getContents();
+        return $this->getResponse()->getBody()->getContents();
     }
 
     public function request($method, $uri, array $options = [])

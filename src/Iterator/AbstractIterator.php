@@ -17,17 +17,6 @@ abstract class AbstractIterator implements \Countable, \Iterator
     }
 
     /**
-     * Return the current element
-     * @link https://php.net/manual/en/iterator.current.php
-     * @return mixed Can return any type.
-     * @since 5.0.0
-     */
-    public function current()
-    {
-        // TODO: Implement current() method.
-    }
-
-    /**
      * Move forward to next element
      * @link https://php.net/manual/en/iterator.next.php
      * @return void Any returned value is ignored.

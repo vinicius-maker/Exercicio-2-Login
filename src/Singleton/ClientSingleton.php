@@ -7,7 +7,6 @@ use GuzzleHttp\Client;
 
 class ClientSingleton
 {
-
     use Singleton;
 
     private static function createInstance()
