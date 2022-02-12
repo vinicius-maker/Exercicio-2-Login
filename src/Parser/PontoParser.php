@@ -2,16 +2,13 @@
 
 namespace Forseti\Bot\Login\Parser;
 
-use Forseti\Bot\Login\Iterator\TabelaIterator;
+use Forseti\Bot\Login\Iterator\PontoIterator;
 
-class TabelaParser extends AbstractParser
+class PontoParser extends AbstractParser
 {
     public function getIterator()
     {
         $tabela = $this->crawler->filterXPath('//*[@id="app"]/main/div[1]/div/div/table/tbody/tr');
-        return new TabelaIterator($tabela);
+        return new PontoIterator($tabela);
     }
-
 }
-
-

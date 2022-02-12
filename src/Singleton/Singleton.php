@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Forseti\Bot\Login\Singleton;
-
 
 trait Singleton
 {
@@ -16,5 +14,4 @@ trait Singleton
 
         return self::$instance;
     }
-
 }

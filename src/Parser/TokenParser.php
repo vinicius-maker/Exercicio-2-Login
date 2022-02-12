@@ -2,8 +2,6 @@
 
 namespace Forseti\Bot\Login\Parser;
 
-use Forseti\Bot\Login\Regex\TabelaRegex;
-
 class TokenParser extends AbstractParser
 {
     public function getToken()

@@ -4,7 +4,7 @@ namespace Forseti\Bot\Login\Iterator;
 
 use Forseti\Bot\Login\Regex\TabelaRegex;
 
-class TabelaIterator extends AbstractIterator
+class PontoIterator extends AbstractIterator
 {
     public function current()
     {
@@ -16,9 +16,9 @@ class TabelaIterator extends AbstractIterator
         $obj->voltaIntervalo = $node->getElementsByTagName('td')->item(2)->textContent;
         $obj->saida = $node->getElementsByTagName('td')->item(3)->textContent;
 
-
         $obj->hora = TabelaRegex::getHora($node->getElementsByTagName('td')->item(0)->textContent);
         $obj->minutos = TabelaRegex::getMinutos($node->getElementsByTagName('td')->item(0)->textContent);
+
         return $obj ;
     }
 }

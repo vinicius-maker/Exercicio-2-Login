@@ -2,14 +2,14 @@
 
 namespace Forseti\Bot\Login\PageObject;
 
-use Forseti\Bot\Login\Bean\TabelaBean;
+use Forseti\Bot\Login\Bean\PontoBean;
 use Forseti\Bot\Login\Enums\Url;
-use Forseti\Bot\Login\Parser\TabelaParser;
+use Forseti\Bot\Login\Parser\PontoParser;
 use GuzzleHttp\Psr7\Response;
 
-class TabelaPageObject extends AbstractPageObject
+class PontoPageObject extends AbstractPageObject
 {
-    use TabelaBean;
+    use PontoBean;
 
     public function getResponse() : Response
     {
@@ -26,8 +26,6 @@ class TabelaPageObject extends AbstractPageObject
 
     public function getParser()
     {
-        return new TabelaParser($this->getHtml());
+        return new PontoParser($this->getHtml());
     }
-
-
 }

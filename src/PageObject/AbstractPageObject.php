@@ -30,12 +30,8 @@ abstract class AbstractPageObject
         try {
             return $this->client->request($method, $uri, $options);
         } catch (GuzzleException $e) {
-            $this->error('Erro ao tentar requisicao', ['exception' => $e]);
-            return null;
-        } catch (\Exception $e) {
-            $this->error('Erro ao tentar requisicao', ['exception' => $e]);
+            $this->error('Erro ao tentar requisicao', ['exception' => $e->getMessage()]);
             return null;
         }
     }
-
 }

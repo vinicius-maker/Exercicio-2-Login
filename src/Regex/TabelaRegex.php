@@ -21,5 +21,4 @@ abstract class TabelaRegex
 
         return $matches[2][0];
     }
-
 }

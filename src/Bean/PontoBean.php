@@ -1,10 +1,8 @@
 <?php
 
-
 namespace Forseti\Bot\Login\Bean;
 
-
-trait TabelaBean
+trait PontoBean
 {
     private $usuario;
     private $senha;
